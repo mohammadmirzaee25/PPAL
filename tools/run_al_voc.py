@@ -158,7 +158,7 @@ def run(round, run_al):
         os.system('rm -f %s' % round_diversity_inference_json)
         os.system('rm -f %s' % round_diversity_image_dis_npy)
 
-
+ 
 if __name__ == '__main__':
     start_round = get_start_round()
     os.system('mkdir -p %s' % cfg.get('output_dir'))
