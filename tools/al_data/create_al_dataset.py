@@ -5,11 +5,11 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser(description='AL Dataset')
-parser.add_argument('oracle-path', type=str, required=True, help='dataset root')
-parser.add_argument('out-root', type=str, required=True, help='output json path')
-parser.add_argument('n-diff', type=int, required=True, help='number of different initial set')
-parser.add_argument('n-labeled', type=int, required=True, help='n labeled images')
-parser.add_argument('dataset', choices=['coco', 'voc'], required=True, help='dataset type')
+parser.add_argument('oracle_path', type=str, help='dataset root')  # removed 'required=True'
+parser.add_argument('out_root', type=str, help='output json path')  # removed 'required=True'
+parser.add_argument('n_diff', type=int, help='number of different initial set')  # removed 'required=True'
+parser.add_argument('n_labeled', type=int, help='n labeled images')  # removed 'required=True'
+parser.add_argument('dataset', choices=['coco', 'voc'], help='dataset type')  # removed 'required=True'
 args = parser.parse_args()
 
 CLASSES = ('person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus',
@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
     N = args.n_diff
     for i in range(N):
-        data_prefix = args.dataset + '_' + args.n_labeled
+        data_prefix = args.dataset + '_' + str(args.n_labeled)
         generate_active_learning_dataset(
             oracle_json=args.oracle_path,
             n_labeled_img=args.n_labeled,
